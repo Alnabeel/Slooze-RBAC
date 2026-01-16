@@ -122,7 +122,7 @@ export default function DashboardPage() {
                     <div className="flex items-center justify-between">
                       <div>
                         <p className="text-sm font-medium text-gray-500 dark:text-zinc-400">Total Value</p>
-                        <p className="mt-2 text-3xl font-bold text-gray-900 dark:text-white">${stats.totalValue.toLocaleString()}</p>
+                        <p className="mt-2 text-3xl font-bold text-gray-900 dark:text-white">₹{stats.totalValue.toLocaleString()}</p>
                       </div>
                       <div className="p-3 bg-yellow-50 dark:bg-yellow-900/20 rounded-lg group-hover:bg-yellow-100 dark:group-hover:bg-yellow-900/30 transition-colors">
                         <svg className="h-6 w-6 text-yellow-600 dark:text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -171,7 +171,7 @@ export default function DashboardPage() {
                       </svg>
                     </div>
                     <p className="ml-3 text-sm text-gray-600 dark:text-zinc-300">
-                      Total inventory value is <strong className="text-green-600 dark:text-green-400">${stats.totalValue.toLocaleString()}</strong>
+                      Total inventory value is <strong className="text-green-600 dark:text-green-400">₹{stats.totalValue.toLocaleString()}</strong>
                     </p>
                   </div>
                 </div>

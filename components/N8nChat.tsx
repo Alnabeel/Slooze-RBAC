@@ -12,12 +12,11 @@ export const N8nChat = () => {
   const chatInitialized = useRef(false);
   const [isOpen, setIsOpen] = useState(false);
 
-  // Don't show chat on welcome and login pages
-  if (pathname === '/' || pathname === '/login') {
-    return null;
-  }
-
   useEffect(() => {
+    if (pathname === '/' || pathname === '/login') {
+      return;
+    }
+
     if (!chatInitialized.current) {
       createChat({
         webhookUrl: 'https://n8n-latest-mio4.onrender.com/webhook/7c05fbb3-a89b-42b6-90be-104ec896f380/chat',
@@ -48,10 +47,12 @@ export const N8nChat = () => {
       });
       chatInitialized.current = true;
     }
-  }, []);
+  }, [pathname]);
+
+  const isHiddenPage = pathname === '/' || pathname === '/login';
 
   return (
-    <>
+    <div className={`${isHiddenPage ? 'hidden' : ''}`}>
       {/* Toggle Button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
@@ -89,6 +90,6 @@ export const N8nChat = () => {
         </div>
         <div id="n8n-chat-container" className="w-full h-full pt-12"></div>
       </div>
-    </>
+    </div>
   );
 };

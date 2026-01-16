@@ -21,6 +21,11 @@ A production-ready, role-based access control (RBAC) frontend application built 
   - Edit existing products
   - Delete products
   - Role-based field restrictions (Store Keeper can only edit stock)
+- **Slooze AI Assistant**: Integrated AI chatbot for system guidance and inventory support:
+  - Role-based assistance (RBAC explanations)
+  - Inventory workflow guidance
+  - Real-time streaming responses
+  - File upload support for documents
 - **Dark/Light Mode** with system preference detection and localStorage persistence
 - **Responsive Design** optimized for mobile, tablet, and desktop
 
@@ -64,6 +69,7 @@ slooze-rbac-frontend/
 │   └── page.tsx                 # Home page (redirects)
 ├── components/                   # Reusable React components
 │   ├── Navbar.tsx               # Navigation with role-based menu
+│   ├── N8nChat.tsx              # Slooze AI Assistant component
 │   ├── ProductModal.tsx         # Add/Edit product modal
 │   └── ProtectedRoute.tsx       # Route protection HOC
 ├── context/                      # React Context providers
@@ -191,6 +197,15 @@ npm start
 - Dashboard route completely hidden from Store Keepers
 - All restrictions enforced both in UI and routing
 
+### Slooze AI Assistant
+- **Integration**: Powered by n8n Chat Trigger and AI Agent nodes
+- **Features**:
+  - **Streaming**: Real-time response generation for a better UX
+  - **Context Aware**: Specialized in Slooze RBAC and inventory workflows
+  - **UI**: Custom-built floating chat widget with toggle and close functionality
+  - **Visibility**: Automatically hidden on login and welcome pages to maintain focus
+  - **Branding**: Customized theme matching the Slooze design system (Rupee currency, primary blue)
+
 ## 📋 Assumptions
 
 1. **Backend API**: All backend responses are mocked using Apollo Client's mock link
@@ -212,6 +227,7 @@ npm start
 
 ## 🔄 Future Enhancements
 
+- [x] Slooze AI Assistant integration
 - [ ] Real backend integration with NestJS + GraphQL
 - [ ] Pagination for products list
 - [ ] Advanced filtering and sorting

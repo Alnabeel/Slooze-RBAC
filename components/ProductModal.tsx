@@ -25,7 +25,7 @@ export default function ProductModal({ isOpen, onClose, product, onSuccess }: Pr
     description: '',
   });
 
-  const [errors, setErrors] = useState<Partial<ProductInput>>({});
+  const [errors, setErrors] = useState<Partial<Record<keyof ProductInput, string>>>({});
 
   const [createProduct, { loading: creating }] = useMutation(CREATE_PRODUCT, {
     refetchQueries: [{ query: GET_PRODUCTS }],
@@ -60,7 +60,7 @@ export default function ProductModal({ isOpen, onClose, product, onSuccess }: Pr
   }, [product, isOpen]);
 
   const validate = (): boolean => {
-    const newErrors: Partial<ProductInput> = {};
+    const newErrors: Partial<Record<keyof ProductInput, string>> = {};
 
     if (!formData.name.trim()) {
       newErrors.name = 'Name is required';
@@ -119,7 +119,11 @@ export default function ProductModal({ isOpen, onClose, product, onSuccess }: Pr
     setFormData(prev => ({ ...prev, [field]: value }));
     // Clear error for this field
     if (errors[field]) {
-      setErrors(prev => ({ ...prev, [field]: undefined }));
+      setErrors(prev => {
+        const next = { ...prev };
+        delete next[field];
+        return next;
+      });
     }
   };
 

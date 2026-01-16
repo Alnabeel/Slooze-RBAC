@@ -4,11 +4,18 @@ import { createChat } from '@n8n/chat';
 import '@n8n/chat/dist/style.css';
 import { useEffect, useRef } from 'react';
 
+import { usePathname } from 'next/navigation';
 import { useState } from 'react';
 
 export const N8nChat = () => {
+  const pathname = usePathname();
   const chatInitialized = useRef(false);
   const [isOpen, setIsOpen] = useState(false);
+
+  // Don't show chat on welcome and login pages
+  if (pathname === '/' || pathname === '/login') {
+    return null;
+  }
 
   useEffect(() => {
     if (!chatInitialized.current) {

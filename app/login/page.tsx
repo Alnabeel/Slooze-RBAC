@@ -41,24 +41,26 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-primary-50 to-primary-100 dark:from-gray-900 dark:to-gray-800 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen flex items-center justify-center bg-gray-50 dark:bg-zinc-950 px-4 sm:px-6 lg:px-8 transition-colors duration-200">
       <div className="max-w-md w-full space-y-8 animate-fade-in">
         <div>
-          <h1 className="text-center text-4xl font-extrabold bg-gradient-to-r from-primary-600 to-primary-400 bg-clip-text text-transparent">
-            Slooze
-          </h1>
-          <h2 className="mt-6 text-center text-3xl font-bold text-gray-900 dark:text-white">
+          <div className="flex justify-center">
+            <div className="h-12 w-12 bg-gradient-to-br from-primary-500 to-primary-700 rounded-xl shadow-lg flex items-center justify-center">
+              <span className="text-white font-bold text-xl">S</span>
+            </div>
+          </div>
+          <h2 className="mt-6 text-center text-3xl font-bold text-gray-900 dark:text-white tracking-tight">
             Sign in to your account
           </h2>
-          <p className="mt-2 text-center text-sm text-gray-600 dark:text-gray-400">
+          <p className="mt-2 text-center text-sm text-gray-600 dark:text-zinc-400">
             Commodities Management System
           </p>
         </div>
 
-        <div className="mt-8 bg-white dark:bg-gray-800 py-8 px-4 shadow-2xl rounded-lg sm:px-10">
+        <div className="mt-8 bg-white dark:bg-zinc-900 py-8 px-4 shadow-xl shadow-gray-200/50 dark:shadow-none sm:rounded-xl sm:px-10 border border-gray-100 dark:border-zinc-800">
           <form className="space-y-6" onSubmit={handleSubmit}>
             {error && (
-              <div className="rounded-md bg-red-50 dark:bg-red-900/20 p-4 animate-slide-in">
+              <div className="rounded-lg bg-red-50 dark:bg-red-900/20 p-4 border border-red-100 dark:border-red-900/30 animate-slide-in">
                 <div className="flex">
                   <div className="flex-shrink-0">
                     <svg className="h-5 w-5 text-red-400" viewBox="0 0 20 20" fill="currentColor">
@@ -73,7 +75,7 @@ export default function LoginPage() {
             )}
 
             <div>
-              <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
+              <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-zinc-300">
                 Email address
               </label>
               <div className="mt-1">
@@ -85,14 +87,14 @@ export default function LoginPage() {
                   required
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="appearance-none block w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:ring-primary-500 focus:border-primary-500 sm:text-sm dark:bg-gray-700 dark:text-white"
+                  className="appearance-none block w-full px-3 py-2 border border-gray-300 dark:border-zinc-700 rounded-lg shadow-sm placeholder-gray-400 focus:outline-none focus:ring-primary-500 focus:border-primary-500 sm:text-sm bg-white dark:bg-zinc-800 text-gray-900 dark:text-white transition-colors"
                   placeholder="you@example.com"
                 />
               </div>
             </div>
 
             <div>
-              <label htmlFor="password" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
+              <label htmlFor="password" className="block text-sm font-medium text-gray-700 dark:text-zinc-300">
                 Password
               </label>
               <div className="mt-1">
@@ -104,7 +106,7 @@ export default function LoginPage() {
                   required
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
-                  className="appearance-none block w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:ring-primary-500 focus:border-primary-500 sm:text-sm dark:bg-gray-700 dark:text-white"
+                  className="appearance-none block w-full px-3 py-2 border border-gray-300 dark:border-zinc-700 rounded-lg shadow-sm placeholder-gray-400 focus:outline-none focus:ring-primary-500 focus:border-primary-500 sm:text-sm bg-white dark:bg-zinc-800 text-gray-900 dark:text-white transition-colors"
                   placeholder="••••••••"
                 />
               </div>
@@ -114,7 +116,7 @@ export default function LoginPage() {
               <button
                 type="submit"
                 disabled={loading}
-                className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-primary-600 hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200 transform hover:scale-105"
+                className="w-full flex justify-center py-2.5 px-4 border border-transparent rounded-xl shadow-sm text-sm font-medium text-white bg-primary-600 hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200 transform hover:scale-[1.02]"
               >
                 {loading ? (
                   <span className="flex items-center">
@@ -134,26 +136,26 @@ export default function LoginPage() {
           <div className="mt-6">
             <div className="relative">
               <div className="absolute inset-0 flex items-center">
-                <div className="w-full border-t border-gray-300 dark:border-gray-600"></div>
+                <div className="w-full border-t border-gray-200 dark:border-zinc-800"></div>
               </div>
               <div className="relative flex justify-center text-sm">
-                <span className="px-2 bg-white dark:bg-gray-800 text-gray-500 dark:text-gray-400">
+                <span className="px-2 bg-white dark:bg-zinc-900 text-gray-500 dark:text-zinc-500">
                   Test Credentials
                 </span>
               </div>
             </div>
 
             <div className="mt-6 space-y-3">
-              <div className="bg-primary-50 dark:bg-primary-900/20 rounded-md p-3">
-                <p className="text-xs font-semibold text-primary-900 dark:text-primary-300">Manager Account:</p>
-                <p className="text-xs text-primary-700 dark:text-primary-400 mt-1">
+              <div className="bg-gray-50 dark:bg-zinc-800/50 rounded-lg p-3 border border-gray-100 dark:border-zinc-800">
+                <p className="text-xs font-semibold text-gray-900 dark:text-white">Manager Account:</p>
+                <p className="text-xs text-gray-600 dark:text-zinc-400 mt-1">
                   Email: manager@slooze.com<br />
                   Password: manager123
                 </p>
               </div>
-              <div className="bg-green-50 dark:bg-green-900/20 rounded-md p-3">
-                <p className="text-xs font-semibold text-green-900 dark:text-green-300">Store Keeper Account:</p>
-                <p className="text-xs text-green-700 dark:text-green-400 mt-1">
+              <div className="bg-gray-50 dark:bg-zinc-800/50 rounded-lg p-3 border border-gray-100 dark:border-zinc-800">
+                <p className="text-xs font-semibold text-gray-900 dark:text-white">Store Keeper Account:</p>
+                <p className="text-xs text-gray-600 dark:text-zinc-400 mt-1">
                   Email: keeper@slooze.com<br />
                   Password: keeper123
                 </p>
@@ -161,10 +163,6 @@ export default function LoginPage() {
             </div>
           </div>
         </div>
-
-        <p className="text-center text-xs text-gray-500 dark:text-gray-400">
-          © 2024 Slooze. Built with Next.js, TypeScript & GraphQL
-        </p>
       </div>
     </div>
   );

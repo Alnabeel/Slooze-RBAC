@@ -1,4 +1,5 @@
 import { ApolloWrapper } from '@/components/ApolloWrapper'
+import { N8nChat } from '@/components/N8nChat'
 import { AuthProvider } from '@/context/AuthContext'
 import { ThemeProvider } from '@/context/ThemeContext'
 import type { Metadata } from 'next'
@@ -24,6 +25,7 @@ export default function RootLayout({
           <ThemeProvider>
             <AuthProvider>
               {children}
+              <N8nChat />
             </AuthProvider>
           </ThemeProvider>
         </ApolloWrapper>
